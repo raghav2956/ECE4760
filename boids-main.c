@@ -162,7 +162,7 @@ static PT_THREAD (protothread_anim(struct pt *pt))
                     _Accum dy = y_pos[i] - y_pos[j];
                     
                     //Is it in visual range
-                    if (abs(dx) < visual_range && abs(dy) < visual_range){
+                    if (abs(dx) < visual_range && abs(dy) < visual_range){    //Is visual range a square box?
                         _Accum squared_distance = dx*dx + dy*dy;
                         
                         
@@ -174,7 +174,7 @@ static PT_THREAD (protothread_anim(struct pt *pt))
                         }
                     
                         //If not in protected range, is the boid in the visual range?
-                        else if (squared_distance < visual_range * visual_range){
+                        else if (squared_distance < visual_range * visual_range){   //This conditional is redundant after 165
 
                         //Add other boid's x/y-coord and x/y vel to accumulator variables
                         xpos_avg += x_pos[j];
